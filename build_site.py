@@ -3,7 +3,10 @@
 build_site.py — generates a one-page website for Medeiros & Sons Landscaping.
 
 Usage:
-    python3 build_site.py            # writes index.html next to this script
+    Windows:   py build_site.py
+    Mac/Linux: python3 build_site.py
+
+    This writes index.html next to this script and opens it in your browser.
 
 Everything a business owner would want to change lives in the CONFIG block
 below. Items marked  # CONFIRM  are reasonable placeholders that should be
@@ -455,6 +458,23 @@ def build(c=CONFIG):
     )
 
 if __name__ == "__main__":
-    out = Path(__file__).with_name("index.html")
-    out.write_text(build(), encoding="utf-8")
-    print(f"Wrote {out} ({out.stat().st_size:,} bytes)")
+    import sys
+    import webbrowser
+
+    if sys.version_info < (3, 6):
+        print("This script needs Python 3.6 or newer. Download it from python.org.")
+        input("Press Enter to close...")
+        sys.exit(1)
+
+    try:
+        out = Path(__file__).resolve().with_name("index.html")
+        out.write_text(build(), encoding="utf-8")
+        print(f"Done! Website saved to:\n  {out}\n")
+        print("Opening it in your web browser...")
+        webbrowser.open(out.as_uri())          # shows the actual website
+    except Exception as err:                   # show the error instead of vanishing
+        print(f"Something went wrong:\n  {err}")
+
+    # Keep the window open when the script is double-clicked on Windows/Mac
+    if sys.stdin and sys.stdin.isatty():
+        input("\nPress Enter to close this window...")
