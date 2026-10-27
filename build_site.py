@@ -143,8 +143,6 @@ PAGE = Template(r"""<!doctype html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>$name $tagline | $town</title>
 <meta name="description" content="$name $tagline — lawn care, cleanups, planting and hardscapes in $town and the South Coast. Call $phone.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"LandscapingBusiness","name":"$name $tagline",
  "telephone":"$phone","address":{"@type":"PostalAddress","addressLocality":"North Dartmouth","addressRegion":"MA"}}
@@ -157,16 +155,16 @@ PAGE = Template(r"""<!doctype html>
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--cream);line-height:1.6}
-h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.15;color:var(--forest)}
+body{font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--cream);line-height:1.6}
+h1,h2,h3{font-family:Georgia,'Times New Roman',serif;line-height:1.15;color:var(--forest)}
 a{color:inherit}
 .wrap{max-width:1160px;margin:0 auto;padding:0 20px}
 .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 24px;border-radius:999px;
      font-weight:600;text-decoration:none;border:2px solid transparent;cursor:pointer;font-size:1rem}
 .btn-primary{background:#e3a63b;color:#1b1f1c}
 .btn-primary:hover{background:#d39528}
-.btn-ghost{border-color:rgba(255,255,255,.7);color:#fff}
-.btn-ghost:hover{background:rgba(255,255,255,.12)}
+.btn-ghost{border-color:var(--forest);color:var(--forest)}
+.btn-ghost:hover{background:rgba(31,61,43,.08)}
 .eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:.78rem;font-weight:600;color:var(--leaf)}
 section{padding:88px 0}
 .section-head{max-width:640px;margin-bottom:44px}
@@ -181,23 +179,23 @@ nav{background:var(--cream);position:sticky;top:0;z-index:20;border-bottom:1px s
 nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
 .logo-mark{width:42px;height:42px;border-radius:50%;background:var(--moss);display:grid;place-items:center;color:#fff}
-.logo b{font-family:Fraunces,serif;font-size:1.25rem;color:var(--forest);display:block;line-height:1}
+.logo b{font-family:Georgia,'Times New Roman',serif;font-size:1.25rem;color:var(--forest);display:block;line-height:1}
 .logo small{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--leaf)}
 .links{display:flex;gap:28px;align-items:center}
 .links a{text-decoration:none;font-weight:500;color:var(--forest)}
 .links .btn{padding:10px 18px}
 
 /* hero */
-.hero{position:relative;background:var(--forest);color:#fff;overflow:hidden;padding:0}
+.hero{position:relative;background:#eaf2e3;color:var(--ink);overflow:hidden;padding:0}
 .hero-art{position:absolute;inset:0;width:100%;height:100%}
 .hero .wrap{position:relative;padding-top:110px;padding-bottom:150px}
-.hero h1{color:#fff;font-size:clamp(2.6rem,6vw,4.6rem);max-width:760px}
-.hero h1 em{font-style:normal;color:#f2c56b}
-.hero p.lead{font-size:1.2rem;max-width:560px;margin:20px 0 32px;color:#e6eee1}
+.hero h1{color:var(--forest);font-size:clamp(2.6rem,6vw,4.6rem);max-width:760px}
+.hero h1 em{font-style:normal;color:#c27c12}
+.hero p.lead{font-size:1.2rem;max-width:560px;margin:20px 0 32px;color:#3d4a40}
 .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
 .promises{list-style:none;display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:40px}
-.promises li{display:flex;align-items:center;gap:8px;font-weight:500;color:#e6eee1}
-.promises svg{color:#f2c56b}
+.promises li{display:flex;align-items:center;gap:8px;font-weight:600;color:var(--forest);background:rgba(255,255,255,.8);padding:6px 14px;border-radius:999px}
+.promises svg{color:var(--leaf)}
 
 /* services */
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
@@ -313,26 +311,25 @@ footer b{color:#fff}
   <svg class="hero-art" viewBox="0 0 1440 640" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
     <defs>
       <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0" stop-color="#18311f"/><stop offset="1" stop-color="#2f5d3a"/>
+        <stop offset="0" stop-color="#f6f2e9"/><stop offset="1" stop-color="#e3eedb"/>
       </linearGradient>
     </defs>
     <rect width="1440" height="640" fill="url(#sky)"/>
-    <circle cx="1150" cy="170" r="90" fill="#f2c56b" opacity=".18"/>
+    <circle cx="1150" cy="170" r="90" fill="#f2c56b" opacity=".6"/>
     <circle cx="1150" cy="170" r="54" fill="#f2c56b" opacity=".35"/>
-    <path d="M0 470 C240 400 420 430 640 455 S1100 380 1440 420 V640 H0Z" fill="#3e7046" opacity=".7"/>
+    <path d="M0 470 C240 400 420 430 640 455 S1100 380 1440 420 V640 H0Z" fill="#b9d3a5" opacity=".8"/>
     <path d="M0 530 C300 480 520 520 780 505 S1200 470 1440 500 V640 H0Z" fill="#5c8a4a"/>
     <path d="M0 590 C360 560 760 600 1080 575 S1340 570 1440 580 V640 H0Z" fill="#8fae7e"/>
-    <g fill="#24472f">
+    <g fill="#5c8a4a">
       <path d="M1010 470 l26 -90 26 90z"/><path d="M1052 480 l34 -120 34 120z"/>
       <path d="M1110 474 l24 -80 24 80z"/><path d="M1240 470 l30 -104 30 104z"/>
-      <path d="M180 455 l28 -96 28 96z"/><path d="M226 462 l22 -72 22 72z"/>
     </g>
     <g stroke="#a9c597" stroke-width="2" opacity=".5">
       <path d="M0 610 H1440"/><path d="M0 625 H1440"/>
     </g>
   </svg>
   <div class="wrap">
-    <p class="eyebrow" style="color:#b8d3a6">$town &middot; Landscaping</p>
+    <p class="eyebrow">$town &middot; Landscaping</p>
     <h1>A yard you&rsquo;re <em>proud</em> to come home to.</h1>
     <p class="lead">Lawn care, seasonal cleanups, planting and patios from a local South Coast crew. One call and it&rsquo;s handled.</p>
     <div class="hero-ctas">
